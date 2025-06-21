@@ -37,15 +37,30 @@ header {
 }
 
 .nav a {
-  text-decoration: none;
   color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  padding: 10px 15px;
+  border-radius: 20px;
+  position: relative;
 }
 
-.nav a:hover,
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
 .nav a.active {
-  color: #E91E63;
+  background: linear-gradient(135deg, #E91E63, #F06292);
+  color: white;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+  transform: translateY(-2px);
+}
+
+.nav a.active:hover {
+  background: linear-gradient(135deg, #C2185B, #E91E63);
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6);
 }
 
 /* Hero Section */
