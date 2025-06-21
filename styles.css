@@ -26,9 +26,20 @@ header {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  height: 60px;
+  display: block;
+}
+
+.logo span {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #E91E63;
+  color: #333;
 }
 
 .nav {
