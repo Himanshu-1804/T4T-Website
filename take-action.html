@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Take Action - Teens 4 Teens</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #FCE4EC, #F3E5F5, #E8EAF6, #F1F8E9);
+      margin: 0;
+      padding: 0;
+    }
+    
+    .action-hero {
+      background: linear-gradient(135deg, #E91E63, #9C27B0, #FF4081, #AD1457, #F50057);
+      color: white;
+      padding: 100px 50px;
+      text-align: center;
+    }
+    
+    .action-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .action-hero p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    
+    .action-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 50px;
+    }
+    
+    .quick-links {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+      margin-bottom: 80px;
+    }
+    
+    .quick-links h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #E91E63, #9C27B0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .link-card {
+      background: linear-gradient(135deg, #FCE4EC, #F3E5F5);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    
+    .link-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(233, 30, 99, 0.2);
+      border-color: #E91E63;
+    }
+    
+    .link-card .icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .link-card h4 {
+      color: #E91E63;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .link-card p {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    
+    .link-card a {
+      background: linear-gradient(135deg, #E91E63, #F06292);
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .link-card a:hover {
+      background: linear-gradient(135deg, #C2185B, #E91E63);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    }
+    
+    .impact-stories {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+      margin-bottom: 80px;
+    }
+    
+    .impact-stories h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #2196F3, #03A9F4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+    
+    .story-card {
+      background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+      border-radius: 15px;
+      padding: 30px;
+      transition: all 0.3s;
+      border-left: 5px solid #2196F3;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(33, 150, 243, 0.2);
+    }
+    
+    .story-card h4 {
+      color: #2196F3;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    
+    .story-card p {
+      color: #666;
+      margin-bottom: 15px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+    
+    .story-location {
+      color: #03A9F4;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    
+    .get-involved {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+    }
+    
+    .get-involved h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #E91E63, #F06292);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .involvement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    
+    .involvement-card {
+      background: linear-gradient(135deg, #FCE4EC, #F8BBD9);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: transform 0.3s;
+      border-bottom: 5px solid #E91E63;
+    }
+    
+    .involvement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(233, 30, 99, 0.3);
+    }
+    
+    .card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .involvement-card h4 {
+      color: #E91E63;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .involvement-card p {
+      color: #666;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    
+    .btn-secondary {
+      background: linear-gradient(135deg, #E91E63, #F06292);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #C2185B, #E91E63);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+      .action-hero {
+        padding: 60px 20px;
+      }
+      
+      .action-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .action-container {
+        padding: 60px 20px;
+      }
+      
+      .links-grid,
+      .stories-grid,
+      .involvement-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">TEENS 4 TEENS</div>
+    <nav class="nav">
+      <a href="main.html">Home</a>
+      <a href="login.html">Log In</a>
+      <a href="donate.html">Donate</a>
+      <a href="#menu">Menu</a>
+    </nav>
+  </header>
+
+  <section class="action-hero">
+    <h1>TAKE ACTION</h1>
+    <p>Join the movement to ensure no teen has to choose between their health and education. Discover how you can make a difference and see the real impact of getting involved.</p>
+    <button class="btn" onclick="scrollToAction()">GET STARTED</button>
+  </section>
+
+  <!-- <section class="action-container">
+    <div class="quick-links">
+      <h3>Quick Navigation</h3>
+      <div class="links-grid">
+        <div class="link-card">
+          <div class="icon">🏠</div>
+          <h4>Home Page</h4>
+          <p>Return to our main website to learn more about Teens 4 Teens and our mission.</p>
+          <a href="main.html">Visit Home</a>
+        </div>
+        <div class="link-card">
+          <div class="icon">🔐</div>
+          <h4>Login</h4>
+          <p>Access your account to manage your profile, track donations, and stay connected.</p>
+          <a href="login.html">Login Now</a>
+        </div>
+        <div class="link-card">
+          <div class="icon">📝</div>
+          <h4>Register</h4>
+          <p>Create a new account to join our community and start making a difference.</p>
+          <a href="register.html">Sign Up</a>
+        </div>
+        <div class="link-card">
+          <div class="icon">💝</div>
+          <h4>Donate</h4>
+          <p>Make a secure donation to provide menstrual products and education to girls worldwide.</p>
+          <a href="donate.html">Donate Now</a>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="impact-stories">
+      <h3>Impact Stories</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 1.1rem;">See what happens when people get involved and the real difference your actions can make.</p>
+      <div class="stories-grid">
+        <div class="story-card">
+          <h4>Maria's Journey</h4>
+          <p>"Before Teens 4 Teens, I missed school every month. Now I can focus on my studies and dream of becoming a doctor. The products and support I received changed everything."</p>
+          <span class="story-location">📍 Kenya</span>
+        </div>
+        <div class="story-card">
+          <h4>Sarah's Leadership</h4>
+          <p>"Leading our school chapter taught me that small actions create big change. We've helped over 200 girls stay in school. I never knew I could make such an impact."</p>
+          <span class="story-location">📍 New York, USA</span>
+        </div>
+        <div class="story-card">
+          <h4>Community Transformation</h4>
+          <p>"Our village now has a sustainable menstrual product supply. Girls are staying in school and breaking cycles of poverty. This organization truly transforms communities."</p>
+          <span class="story-location">📍 Uganda</span>
+        </div>
+        <div class="story-card">
+          <h4>Volunteer Impact</h4>
+          <p>"As a volunteer, I've seen firsthand how access to menstrual products keeps girls in school. The gratitude in their eyes motivates me to do more every day."</p>
+          <span class="story-location">📍 California, USA</span>
+        </div>
+        <div class="story-card">
+          <h4>School Chapter Success</h4>
+          <p>"Our school chapter started with just 5 members. Now we have 50 active volunteers and have helped over 300 girls in our community access essential products."</p>
+          <span class="story-location">📍 Texas, USA</span>
+        </div>
+        <div class="story-card">
+          <h4>Global Partnership</h4>
+          <p>"Partnering with Teens 4 Teens has allowed us to reach girls in remote areas. The education component has been just as important as the products themselves."</p>
+          <span class="story-location">📍 India</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="get-involved">
+      <h3>Get Involved Today</h3>
+      <div class="involvement-grid">
+        <div class="involvement-card">
+          <div class="card-icon">💝</div>
+          <h4>Donate</h4>
+          <p>Every $1 provides menstrual products that keep a girl healthy, confident, and focused on her future. Your donation makes an immediate impact.</p>
+          <a href="donate.html" class="btn-secondary">Donate Now</a>
+        </div>
+        <div class="involvement-card">
+          <div class="card-icon">🤝</div>
+          <h4>Volunteer</h4>
+          <p>Join our network of volunteers and help distribute products and provide education in your community. No experience required!</p>
+          <a href="#volunteer" class="btn-secondary">Volunteer</a>
+        </div>
+        <div class="involvement-card">
+          <div class="card-icon">🏫</div>
+          <h4>Start a Chapter</h4>
+          <p>Establish a Teens 4 Teens chapter at your school and become a leader in menstrual equity. We'll provide all the resources you need.</p>
+          <a href="#chapter" class="btn-secondary">Start Chapter</a>
+        </div>
+        <div class="involvement-card">
+          <div class="card-icon">📢</div>
+          <h4>Spread Awareness</h4>
+          <p>Share our mission on social media, host awareness events, or talk to friends and family about menstrual equity and education.</p>
+          <a href="#awareness" class="btn-secondary">Learn More</a>
+        </div>
+        <div class="involvement-card">
+          <div class="card-icon">🤲</div>
+          <h4>Partner With Us</h4>
+          <p>Are you a business, school, or organization? Partner with us to expand our reach and create lasting change in your community.</p>
+          <a href="#partner" class="btn-secondary">Partner</a>
+        </div>
+        <div class="involvement-card">
+          <div class="card-icon">📧</div>
+          <h4>Stay Connected</h4>
+          <p>Sign up for our newsletter to stay updated on our impact, upcoming events, and new ways to get involved in the movement.</p>
+          <a href="#newsletter" class="btn-secondary">Subscribe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#">📘</a>
+        <a href="#">🐦</a>
+        <a href="#">📷</a>
+        <a href="#">🎵</a>
+      </div>
+      <p>© 2025 by Teens 4 Teens</p>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToAction() {
+      document.querySelector('.action-container').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+    
+    // Add smooth scrolling for all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html> 
