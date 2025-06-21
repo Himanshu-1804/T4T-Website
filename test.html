@@ -3,85 +3,486 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teens 4 Teens Enhancements</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Teens 4 Teens Replica</title>
+  <title>Teens 4 Teens - Period Products For All</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-    .carousel { position: relative; max-width: 800px; margin: 50px auto; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: #fff; }
-    body { margin:0; font-family: Arial, sans-serif; background: #f9f9f9; }
-    header {
-      position: sticky; top:0; background:white; z-index:1000;
-      display:flex; justify-content:space-between; align-items:center;
-      padding:10px 20px; box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    header .nav a { margin-left:15px; text-decoration:none; color:#333; }
 
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #E91E63;
+    }
+
+    .nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover {
+      color: #E91E63;
+    }
+
+    /* Hero Section */
     .hero {
-      height:80vh;
-      background: url('hero-bg.jpg') center/cover no-repeat;
-      display:flex; flex-direction:column;
-      justify-content:center; align-items:center;
-      text-align:center; color:rgb(255, 255, 255); padding:0 20px;
+      background: linear-gradient(135deg, #E91E63, #9C27B0);
+      color: white;
+      padding: 100px 50px;
+      text-align: center;
     }
-    .hero h1 { font-size:3rem; margin-bottom:1rem; color:rgb(22, 3, 3);}
-    .hero p { font-size:1.2rem; margin-bottom:2rem; color:rgb(22, 3, 3);}
-    .hero .btn {
-      background:#E91E63; color:rgb(255, 255, 255); padding:15px 30px;
-      font-size:1rem; border:none; border-radius:4px;
-      cursor:pointer;
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
-    @media(max-width:768px){
-      .hero h1 { font-size:2.2rem; color:rgb(22, 3, 3);}
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      background: white;
+      color: #E91E63;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Stats Section */
+    .stats {
+      background: #f8f9fa;
+      padding: 80px 50px;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #E91E63;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 50px;
+      background: white;
+    }
+
+    .about-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #E91E63;
+    }
+
+    .about-text p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .about-image {
+      background: #f0f0f0;
+      height: 400px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 1.2rem;
+    }
+
+    /* How We Work Section */
+    .how-we-work {
+      background: #f8f9fa;
+      padding: 80px 50px;
+    }
+
+    .how-we-work h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      color: #E91E63;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .step {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .step h4 {
+      color: #E91E63;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .step p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .step a {
+      color: #E91E63;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: white;
+      padding: 80px 50px;
+    }
+
+    .contact-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-form h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #E91E63;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav {
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .about-content,
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stats,
+      .about,
+      .how-we-work,
+      .contact {
+        padding: 60px 20px;
+      }
+    }
+
+    /* Testimonials Carousel */
+    .testimonials {
+      background: #f8f9fa;
+      padding: 80px 50px;
+    }
+
+    .testimonials h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      color: #E91E63;
     }
 
     .carousel {
-      position: relative; max-width: 800px; margin: 50px auto; overflow: hidden;
-      border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: #fff;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: #fff;
     }
-    .slides { display: flex; transition: transform 0.5s ease-in-out; }
-    .slide { min-width: 100%; box-sizing: border-box; padding: 40px; text-align: center; }
-    .slide h3 { margin-bottom: 10px; color: #E91E63; }
-    .slide p { font-size: 1.1rem; }
-    .nav { text-align: center; margin-top: 10px; }
-    .nav button { margin: 0 5px; padding: 10px 20px; background: #E91E63; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
 
-    #chatbot-toggle {
-      position: fixed; bottom: 20px; right: 20px;
-      background-color: #E91E63; color: white;
-      border: none; border-radius: 50%; width: 60px; height: 60px;
-      font-size: 30px; cursor: pointer;
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
     }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .slide h4 {
+      margin-bottom: 10px;
+      color: #E91E63;
+      font-size: 1.3rem;
+    }
+
+    .slide p {
+      font-size: 1.1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .carousel-nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .carousel-nav button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      background: #E91E63;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .carousel-nav button:hover {
+      background: #C2185B;
+    }
+
+    /* Chatbot */
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #E91E63;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+      z-index: 1000;
+    }
+
+    #chatbot-toggle:hover {
+      transform: scale(1.1);
+    }
+
     #chatbot {
-      position: fixed; bottom: 90px; right: 20px;
-      width: 300px; max-height: 400px;
-      background: white; border: 1px solid #ccc;
-      display: none; flex-direction: column;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      max-height: 500px;
+      background: white;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       border-radius: 10px;
+      z-index: 1000;
     }
+
     #chatbot-header {
-      background: #E91E63; color: white; padding: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px;
+      background: #E91E63;
+      color: white;
+      padding: 15px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-weight: bold;
     }
+
     #chatbot-messages {
-      flex: 1; padding: 10px; overflow-y: auto; font-size: 14px;
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      font-size: 14px;
+      max-height: 300px;
     }
+
+    #chatbot-messages div {
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    #chatbot-messages div:has(strong:contains("Bot")) {
+      background: #f0f0f0;
+    }
+
+    #chatbot-messages div:has(strong:contains("You")) {
+      background: #E91E63;
+      color: white;
+      text-align: right;
+    }
+
     #chatbot-input {
       display: flex;
+      border-top: 1px solid #ccc;
     }
+
     #chatbot-input input {
-      flex: 1; padding: 8px; border: none; border-top: 1px solid #ccc;
+      flex: 1;
+      padding: 12px;
+      border: none;
+      outline: none;
+      font-size: 14px;
     }
+
     #chatbot-input button {
-      background: #E91E63; border: none; color: white; padding: 8px 10px;
+      background: #E91E63;
+      border: none;
+      color: white;
+      padding: 12px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #chatbot-input button:hover {
+      background: #C2185B;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">TEENS 4 TEENS</div>
+    <div class="logo">TEENS 4 TEENS</div>
     <nav class="nav">
       <a href="#">Log In</a>
       <a href="#">Donate Now</a>
@@ -92,40 +493,160 @@
 
   <section class="hero">
     <h1>FIGHT FOR EQUITY</h1>
-    <p>No teen should have to choose between their health and their education.</p>
+    <h2>JOIN THE MOVEMENT</h2>
+    <p>No teen should have to choose between their health and their education. We provide tampons and pads for girls who need them, worldwide. Empowering economies, empowering education, empowering women.</p>
     <button class="btn">GET INVOLVED</button>
   </section>
-  <!-- Success Stories Carousel -->
-  <div class="carousel">
-    <div class="slides" id="slides">
-      <div class="slide">
-        <h3>Jane, 17</h3>
-        <p>"This platform gave me a voice. I feel seen and heard like never before."</p>
+
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">2.2M</div>
+        <div class="stat-label">Teens given hygiene information</div>
       </div>
-      <div class="slide">
-        <h3>Malik, 16</h3>
-        <p>"Through Teens4Teens, I found purpose and a path to help others too."</p>
+      <div class="stat-item">
+        <div class="stat-number">390</div>
+        <div class="stat-label">Volunteers</div>
       </div>
-      <div class="slide">
-        <h3>Aisha, 18</h3>
-        <p>"Being part of this movement changed how I see myself and the world."</p>
+      <div class="stat-item">
+        <div class="stat-number">42</div>
+        <div class="stat-label">Schools Partnered with</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">32</div>
+        <div class="stat-label">Businesses Supported</div>
       </div>
     </div>
-  </div>
-  <div class="nav">
-    <button onclick="prevSlide()">Prev</button>
-    <button onclick="nextSlide()">Next</button>
-  </div>
+  </section>
+
+  <section class="about">
+    <div class="about-content">
+      <div class="about-text">
+        <h3>About Teens 4 Teens</h3>
+        <p>No teen should have to choose between their health and their education.</p>
+        <p>Teens 4 Teens empowers young women, and their economies, globally with period care and menstrual education so that no one has to suffer in silence.</p>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="about-image">
+        [T4T-Stock-African-Schoolgirls Image Placeholder]
+      </div>
+    </div>
+  </section>
+
+  <section class="how-we-work">
+    <h3>HOW WE WORK</h3>
+    <div class="steps-grid">
+      <div class="step">
+        <h4>Step 1: Connect with schools</h4>
+        <p>Saint Johns High School Chapter - Student chapter leaders and faculty mentors facilitate free menstrual product distribution and community service events monthly.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div class="step">
+        <h4>Step 2: Partner With Pharmacies Near Chapters</h4>
+        <p>AB Pharmacy in Liberia - Collaborate with local pharmacies in developing economies with monthly bulk orders supporting developing economies.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div class="step">
+        <h4>Step 3: Buy and Deliver to Chapters For Young Women and Our Community</h4>
+        <p>Bishop Francis Carroll High School - We buy from local pharmacies and work with chapter leaders to give products to young women who need them, supporting the economy and keeping girls healthy, comfortable, and pursuing their education.</p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h3>Success Stories</h3>
+    <div class="carousel">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <h4>Jane, 17</h4>
+          <p>"This platform gave me a voice. I feel seen and heard like never before. The support I received helped me stay in school and pursue my dreams."</p>
+        </div>
+        <div class="slide">
+          <h4>Malik, 16</h4>
+          <p>"Through Teens4Teens, I found purpose and a path to help others too. Being part of this movement changed how I see myself and the world."</p>
+        </div>
+        <div class="slide">
+          <h4>Aisha, 18</h4>
+          <p>"The menstrual products and education I received kept me in school. Now I'm helping other girls access the same resources."</p>
+        </div>
+        <div class="slide">
+          <h4>Sarah, 15</h4>
+          <p>"I no longer have to miss school because of my period. This organization truly understands what girls need to succeed."</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-nav">
+      <button onclick="prevSlide()">Previous</button>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-content">
+      <div class="contact-form">
+        <h3>Contact Us</h3>
+        <p>Request support, ask questions, or connect with our team! Responses are usually sent within 5 business days.</p>
+        <form>
+          <div class="form-group">
+            <label for="firstname">First name*</label>
+            <input type="text" id="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last name*</label>
+            <input type="text" id="lastname" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message"></textarea>
+          </div>
+          <button type="submit" class="btn">SUBMIT</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h4>OFFICES</h4>
+        <p>441 Lexington Avenue<br>New York, NY 10022</p>
+        <p>2459 Wilkinson Boulevard<br>Charlotte, NC 28208</p>
+        
+        <h4>PHONE</h4>
+        <p>+1 (704) 890-1165</p>
+        
+        <h4>EMAIL</h4>
+        <p>info@teens4teens.net</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#">📘</a>
+        <a href="#">🐦</a>
+        <a href="#">📷</a>
+        <a href="#">🎵</a>
+      </div>
+      <p>© 2025 by Teens 4 Teens</p>
+    </div>
+  </footer>
 
   <!-- Chatbot -->
   <button id="chatbot-toggle">💬</button>
   <div id="chatbot">
     <div id="chatbot-header">Need Help?</div>
     <div id="chatbot-messages">
-      <div><strong>Bot:</strong> Hi there! What are you looking for support with today?</div>
+      <div><strong>Bot:</strong> Hi there! I'm here to help you with information about Teens 4 Teens. What would you like to know?</div>
     </div>
     <div id="chatbot-input">
-      <input type="text" id="user-input" placeholder="Type a message...">
+      <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
       <button onclick="sendMessage()">Send</button>
     </div>
   </div>
@@ -149,6 +670,9 @@
       updateCarousel();
     }
 
+    // Auto-advance carousel every 5 seconds
+    setInterval(nextSlide, 5000);
+
     // Chatbot logic
     const chatbot = document.getElementById("chatbot");
     const toggleBtn = document.getElementById("chatbot-toggle");
@@ -157,23 +681,49 @@
       chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
     };
 
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+    }
+
     function sendMessage() {
       const input = document.getElementById("user-input");
       const msg = input.value.trim();
       if (!msg) return;
 
       const messages = document.getElementById("chatbot-messages");
+      
+      // Add user message
       const userMsg = document.createElement("div");
       userMsg.innerHTML = `<strong>You:</strong> ${msg}`;
       messages.appendChild(userMsg);
 
+      // Generate bot response
       const botReply = document.createElement("div");
-      botReply.innerHTML = `<strong>Bot:</strong> Thanks for sharing. Someone will be in touch soon.`;
+      let response = "Thanks for your message! Someone from our team will be in touch soon.";
+      
+      // Simple keyword-based responses
+      const lowerMsg = msg.toLowerCase();
+      if (lowerMsg.includes("donate") || lowerMsg.includes("give")) {
+        response = "You can donate through our website! Every $1 provides menstrual products that keep a girl healthy, confident, and focused on her future.";
+      } else if (lowerMsg.includes("volunteer") || lowerMsg.includes("help")) {
+        response = "We'd love your help! You can volunteer with your local chapter or start one at your school. Contact us for more information.";
+      } else if (lowerMsg.includes("product") || lowerMsg.includes("pad") || lowerMsg.includes("tampon")) {
+        response = "We provide free menstrual products to girls in need worldwide. Our chapters distribute products monthly and provide education.";
+      } else if (lowerMsg.includes("school") || lowerMsg.includes("chapter")) {
+        response = "We partner with schools to create chapters that distribute products and provide education. Contact us to start a chapter at your school!";
+      } else if (lowerMsg.includes("contact") || lowerMsg.includes("email")) {
+        response = "You can reach us at info@teens4teens.net or use the contact form on this page. We typically respond within 5 business days.";
+      }
+
+      botReply.innerHTML = `<strong>Bot:</strong> ${response}`;
       messages.appendChild(botReply);
 
       input.value = "";
       messages.scrollTop = messages.scrollHeight;
     }
   </script>
+
 </body>
 </html>
