@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate - Teens 4 Teens</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #FCE4EC, #F3E5F5, #E8EAF6, #F1F8E9);
+      margin: 0;
+      padding: 0;
+    }
+    
+    .donate-hero {
+      background: linear-gradient(135deg, #E91E63, #9C27B0, #FF4081, #AD1457, #F50057);
+      color: white;
+      padding: 100px 50px;
+      text-align: center;
+    }
+    
+    .donate-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .donate-hero p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    
+    .donate-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 100px;
+    }
+    
+    .donation-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .donation-option {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+      border: 2px solid transparent;
+    }
+    
+    .donation-option:hover,
+    .donation-option.selected {
+      background: linear-gradient(135deg, #E91E63, #F06292);
+      color: white;
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(233, 30, 99, 0.3);
+      border-color: #E91E63;
+    }
+    
+    .donation-option h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .donation-option .amount {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .donation-option .impact {
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+    
+    .custom-amount {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    
+    .custom-amount h3 {
+      color: #E91E63;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    
+    .amount-input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .amount-input span {
+      font-size: 2.5rem;
+      color: #E91E63;
+      font-weight: bold;
+    }
+    
+    .amount-input input {
+      font-size: 2rem;
+      padding: 20px;
+      border: 3px solid #E91E63;
+      border-radius: 15px;
+      text-align: center;
+      width: 250px;
+      background: white;
+    }
+    
+    .amount-input input:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
+    }
+    
+    .payment-form {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+    }
+    
+    .payment-form h3 {
+      color: #E91E63;
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 2rem;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s;
+      background: white;
+    }
+    
+    .form-group input:focus {
+      outline: none;
+      border-color: #E91E63;
+      box-shadow: 0 0 15px rgba(233, 30, 99, 0.2);
+    }
+    
+    .card-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .card-icon {
+      font-size: 2rem;
+    }
+    
+    .donate-btn {
+      background: linear-gradient(135deg, #E91E63, #F06292);
+      color: white;
+      border: none;
+      padding: 20px 50px;
+      border-radius: 30px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+      margin-top: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .donate-btn:hover {
+      background: linear-gradient(135deg, #C2185B, #E91E63);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
+    }
+    
+    .security-note {
+      text-align: center;
+      margin-top: 30px;
+      color: #666;
+      font-size: 1rem;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+    
+    .impact-stats {
+      background: linear-gradient(135deg, #FCE4EC, #F3E5F5, #E8EAF6, #E1F5FE);
+      padding: 60px 50px;
+      text-align: center;
+    }
+    
+    .impact-stats h3 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #E91E63, #9C27B0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .stat-item {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #E91E63;
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: #666;
+      font-size: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .donate-hero {
+        padding: 60px 20px;
+      }
+      
+      .donate-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .donate-container {
+        padding: 100px 100px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .amount-input input {
+        width: 200px;
+        font-size: 1.5rem;
+      }
+      
+      .donation-options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">TEENS 4 TEENS</div>
+    <nav class="nav">
+      <a href="main.html">Home</a>
+      <a href="login.html">Log In</a>
+      <a href="#action">Take Action</a>
+      <a href="#menu">Menu</a>
+    </nav>
+  </header>
+
+  <section class="donate-hero">
+    <h1>MAKE A DIFFERENCE</h1>
+    <p>Your donation provides menstrual products and education to girls worldwide. Every dollar helps keep girls healthy, confident, and focused on their education.</p>
+    <button class="btn" onclick="scrollToDonate()">DONATE NOW</button>
+  </section>
+
+  <!-- <section class="impact-stats">
+    <h3>Your Impact</h3>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">$25</div>
+        <div class="stat-label">Provides products for 1 month</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$50</div>
+        <div class="stat-label">Provides products for 3 months</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$100</div>
+        <div class="stat-label">Provides products for 6 months</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$250</div>
+        <div class="stat-label">Provides products for 1 year</div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="donate-container">
+    <div class="donation-options">
+      <div class="donation-option" onclick="selectAmount(25)">
+        <h3>Basic Support</h3>
+        <div class="amount">$25</div>
+        <div class="impact">Provides menstrual products for one girl for 1 month</div>
+      </div>
+      <div class="donation-option" onclick="selectAmount(50)">
+        <h3>Monthly Support</h3>
+        <div class="amount">$50</div>
+        <div class="impact">Provides menstrual products for one girl for 3 months</div>
+      </div>
+      <div class="donation-option" onclick="selectAmount(100)">
+        <h3>Quarterly Support</h3>
+        <div class="amount">$100</div>
+        <div class="impact">Provides menstrual products for one girl for 6 months</div>
+      </div>
+      <div class="donation-option" onclick="selectAmount(250)">
+        <h3>Annual Support</h3>
+        <div class="amount">$250</div>
+        <div class="impact">Provides menstrual products for one girl for 1 year</div>
+      </div>
+    </div>
+    
+    <div class="custom-amount">
+      <h3>Or Enter Custom Amount</h3>
+      <div class="amount-input">
+        <span>$</span>
+        <input type="number" id="customAmount" placeholder="0.00" min="1" step="0.01">
+      </div>
+    </div>
+    
+    <div class="payment-form">
+      <h3>Payment Information</h3>
+      <form id="donationForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="cardNumber">Card Number *</label>
+          <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+          <div class="card-icons">
+            <span class="card-icon">💳</span>
+            <span class="card-icon">🔒</span>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expiry">Expiry Date *</label>
+            <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV *</label>
+            <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="billingAddress">Billing Address *</label>
+          <input type="text" id="billingAddress" required>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City *</label>
+            <input type="text" id="city" required>
+          </div>
+          <div class="form-group">
+            <label for="zipCode">ZIP Code *</label>
+            <input type="text" id="zipCode" required>
+          </div>
+        </div>
+        
+        <button type="submit" class="donate-btn">Complete Donation</button>
+      </form>
+      
+      <div class="security-note">
+        🔒 Your payment information is secure and encrypted. We use industry-standard security measures to protect your data.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#">📘</a>
+        <a href="#">🐦</a>
+        <a href="#">📷</a>
+        <a href="#">🎵</a>
+      </div>
+      <p>© 2025 by Teens 4 Teens</p>
+    </div>
+  </footer>
+
+  <script>
+    let selectedAmount = 0;
+    
+    function scrollToDonate() {
+      document.querySelector('.donate-container').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+    
+    function selectAmount(amount) {
+      selectedAmount = amount;
+      document.getElementById('customAmount').value = amount;
+      
+      // Remove selected class from all options
+      document.querySelectorAll('.donation-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked option
+      event.target.closest('.donation-option').classList.add('selected');
+    }
+    
+    // Format card number with spaces
+    document.getElementById('cardNumber').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+      let formattedValue = value.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim();
+      e.target.value = formattedValue;
+    });
+    
+    // Format expiry date
+    document.getElementById('expiry').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+      }
+      e.target.value = value;
+    });
+    
+    // Handle form submission
+    document.getElementById('donationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const amount = document.getElementById('customAmount').value || selectedAmount;
+      if (!amount || amount <= 0) {
+        alert('Please select or enter a valid donation amount.');
+        return;
+      }
+      
+      // Here you would typically send the payment data to your payment processor
+      alert(`Thank you for your donation of $${amount}! Your payment is being processed.`);
+      
+      // Reset form
+      this.reset();
+      selectedAmount = 0;
+      document.querySelectorAll('.donation-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+    });
+    
+    // Update custom amount when user types
+    document.getElementById('customAmount').addEventListener('input', function(e) {
+      selectedAmount = parseFloat(e.target.value) || 0;
+      document.querySelectorAll('.donation-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+    });
+  </script>
+</body>
+</html> 
