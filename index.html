@@ -14,7 +14,7 @@
       <a href="index.html">
         <img src="img/logo.png" alt="Teens 4 Teens Logo">
       </a>
-      <span>TEENS 4 TEENS</span>
+      <span onclick="window.location.href='index.html'" style="cursor: pointer;">TEENS 4 TEENS</span>
     </div>
     <nav class="nav">
       <a href="index.html" class="active">Home</a>
@@ -28,7 +28,10 @@
     <h1>FIGHT FOR EQUITY</h1>
     <h2>JOIN THE MOVEMENT</h2>
     <p>No teen should have to choose between their health and their education. We provide tampons and pads for girls who need them, worldwide. Empowering economies, empowering education, empowering women.</p>
-    <button class="btn">GET INVOLVED</button>
+    <div class="hero-buttons">
+      <button class="btn">GET INVOLVED</button>
+      <button class="btn btn-secondary" onclick="openQuiz()">Take the Menstrual Health Quiz</button>
+    </div>
   </section>
 
   <section class="stats">

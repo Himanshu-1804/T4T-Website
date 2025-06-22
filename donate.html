@@ -12,7 +12,7 @@
       <a href="index.html">
         <img src="img/logo.png" alt="Teens 4 Teens Logo">
       </a>
-      <span>TEENS 4 TEENS</span>
+      <span onclick="window.location.href='index.html'" style="cursor: pointer;">TEENS 4 TEENS</span>
     </div>
     <nav class="nav">
       <a href="index.html">Home</a>
@@ -26,7 +26,10 @@
   <section class="donate-hero">
     <h1>MAKE A DIFFERENCE</h1>
     <p>Your donation provides menstrual products and education to girls worldwide. Every dollar helps keep girls healthy, confident, and focused on their education.</p>
-    <button class="btn" onclick="scrollToDonate()">DONATE NOW</button>
+    <div class="hero-buttons">
+      <button class="btn" onclick="scrollToDonate()">DONATE NOW</button>
+      <button class="btn btn-secondary" onclick="openQuiz()">Take the Menstrual Health Quiz</button>
+    </div>
   </section>
 
   <!-- <section class="impact-stats">
@@ -399,6 +402,13 @@
         }
       });
     });
+    
+    // Menstrual Health Quiz - Placeholder function
+    function openQuiz() {
+      // TODO: Implement the interactive menstrual health quiz
+      // This will open a modal or navigate to a quiz page
+      alert('Menstrual Health Quiz coming soon! This feature will include:\n\n• Interactive questions about menstrual health\n• Myths vs facts section\n• Educational content about puberty\n• Personalized results and recommendations\n\nStay tuned for this educational feature!');
+    }
   </script>
 </body>
 </html> 

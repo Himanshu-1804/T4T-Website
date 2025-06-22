@@ -367,4 +367,18 @@ chatbotStyle.textContent = `
     margin-bottom: 15px;
   }
 `;
-document.head.appendChild(chatbotStyle); 
+document.head.appendChild(chatbotStyle);
+
+// Menstrual Health Quiz - Placeholder function
+function openQuiz() {
+  // TODO: Implement the interactive menstrual health quiz
+  // This will open a modal or navigate to a quiz page
+  alert('Menstrual Health Quiz coming soon! This feature will include:\n\n• Interactive questions about menstrual health\n• Myths vs facts section\n• Educational content about puberty\n• Personalized results and recommendations\n\nStay tuned for this educational feature!');
+  
+  // Future implementation could include:
+  // - Modal popup with quiz questions
+  // - Progress tracking
+  // - Score calculation
+  // - Educational feedback
+  // - Share results option
+} 
