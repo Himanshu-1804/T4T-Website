@@ -12,6 +12,75 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize contact form
   initContactForm();
+  
+  // World Map Functionality
+  const mapPins = document.querySelectorAll('.map-pin');
+  
+  mapPins.forEach(pin => {
+    // Add click event for mobile devices
+    pin.addEventListener('click', function() {
+      const tooltip = this.querySelector('.pin-tooltip');
+      const isVisible = tooltip.style.opacity === '1';
+      
+      // Hide all tooltips first
+      document.querySelectorAll('.pin-tooltip').forEach(t => {
+        t.style.opacity = '0';
+        t.style.visibility = 'hidden';
+      });
+      
+      // Show clicked tooltip if it wasn't visible
+      if (!isVisible) {
+        tooltip.style.opacity = '1';
+        tooltip.style.visibility = 'visible';
+        tooltip.style.transform = 'translateX(-50%) translateY(-5px)';
+      }
+    });
+    
+    // Add keyboard accessibility
+    pin.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+    
+    // Add focus management
+    pin.addEventListener('focus', function() {
+      this.setAttribute('tabindex', '0');
+    });
+  });
+  
+  // Close tooltips when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.map-pin')) {
+      document.querySelectorAll('.pin-tooltip').forEach(tooltip => {
+        tooltip.style.opacity = '0';
+        tooltip.style.visibility = 'hidden';
+      });
+    }
+  });
+  
+  // Add smooth entrance animation for pins
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const pinObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = 'pinEntrance 0.6s ease-out forwards';
+        pinObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  mapPins.forEach((pin, index) => {
+    pin.style.opacity = '0';
+    pin.style.transform = 'scale(0) translateY(20px)';
+    pin.style.animationDelay = `${index * 0.1}s`;
+    pinObserver.observe(pin);
+  });
 });
 
 // Carousel functionality
@@ -365,6 +434,20 @@ chatbotStyle.textContent = `
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
+  }
+  
+  @keyframes pinEntrance {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateY(20px);
+    }
+    50% {
+      transform: scale(1.1) translateY(-5px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 `;
 document.head.appendChild(chatbotStyle);

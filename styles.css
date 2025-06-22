@@ -573,79 +573,6 @@ footer {
   background: linear-gradient(135deg, #C2185B, #7B1FA2);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  header {
-    padding: 15px 20px;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .nav {
-    gap: 15px;
-  }
-  
-  .hero {
-    padding: 60px 20px;
-  }
-  
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero h2 {
-    font-size: 1.8rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .btn-secondary {
-    margin-left: 0;
-  }
-  
-  .about-content,
-  .contact-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .stats {
-    padding: 60px 20px;
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .impact-gallery,
-  .programs,
-  .impact-stories,
-  .get-involved {
-    padding: 60px 20px;
-  }
-  
-  .gallery-grid,
-  .programs-grid,
-  .stories-grid,
-  .involvement-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .gallery-item img,
-  .program-card img {
-    height: 200px;
-  }
-}
-
 /* Impact Gallery Section */
 .impact-gallery {
   background: linear-gradient(135deg, #E8F5E8, #F1F8E9, #DCEDC8);
@@ -1496,4 +1423,215 @@ footer {
 .donate-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+/* World Map Section */
+.world-map-section {
+  background: linear-gradient(135deg, #FCE4EC, #F3E5F5, #E8EAF6, #F1F8E9);
+  padding: 80px 50px;
+  text-align: center;
+}
+
+.map-container h3 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #E91E63, #9C27B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.map-container p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.world-map {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  margin: 0 auto 40px;
+  background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.1);
+  overflow: hidden;
+  background-image: 
+    radial-gradient(circle at 20% 35%, rgba(233, 30, 99, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 25% 40%, rgba(156, 39, 176, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 30% 45%, rgba(233, 30, 99, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 35% 50%, rgba(156, 39, 176, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 55%, rgba(233, 30, 99, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 60%, rgba(156, 39, 176, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 85% 45%, rgba(233, 30, 99, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 15% 35%, rgba(156, 39, 176, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 85% 70%, rgba(233, 30, 99, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 50% 25%, rgba(156, 39, 176, 0.1) 2px, transparent 2px);
+  background-size: 100% 100%;
+}
+
+.map-pin {
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.map-pin:hover {
+  transform: scale(1.2);
+  z-index: 20;
+}
+
+.pin-marker {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #E91E63, #F06292);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.pin-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.pin-tooltip {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  color: #333;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 30;
+  border: 2px solid #E91E63;
+}
+
+.pin-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: white;
+}
+
+.map-pin:hover .pin-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.map-legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.legend-pin {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #E91E63, #F06292);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: inline-block;
+}
+
+.legend-pin.community {
+  background: linear-gradient(135deg, #9C27B0, #BA68C8);
+}
+
+.legend-pin.partnership {
+  background: linear-gradient(135deg, #2196F3, #64B5F6);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(233, 30, 99, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+  }
+}
+
+/* World Map Mobile Responsive */
+@media (max-width: 768px) {
+  .world-map-section {
+    padding: 60px 20px;
+  }
+  
+  .map-container h3 {
+    font-size: 2rem;
+  }
+  
+  .world-map {
+    height: 350px;
+    margin-bottom: 30px;
+  }
+  
+  .map-pin {
+    transform: scale(0.8);
+  }
+  
+  .map-pin:hover {
+    transform: scale(1);
+  }
+  
+  .pin-marker {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .pin-marker::after {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .pin-tooltip {
+    font-size: 0.8rem;
+    padding: 10px;
+    white-space: normal;
+    max-width: 150px;
+  }
+  
+  .map-legend {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
 } 
