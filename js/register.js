@@ -55,15 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
   termsCheckbox.addEventListener('change', function() {
     validateTerms();
   });
-
-  // Google OAuth (mock)
-  const googleBtn = document.querySelector('.btn-google');
-  if (googleBtn) {
-    googleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      handleGoogleSignup();
-    });
-  }
 });
 
 function validateRegistrationForm(userData) {
@@ -265,45 +256,6 @@ function clearFieldError(fieldName) {
   // Remove error message
   if (errorDiv) {
     errorDiv.remove();
-  }
-}
-
-async function handleGoogleSignup() {
-  try {
-    // Show loading state
-    const googleBtn = document.querySelector('.btn-google');
-    googleBtn.classList.add('loading');
-    googleBtn.disabled = true;
-    
-    // Simulate Google OAuth
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Mock successful Google signup
-    const mockUser = {
-      firstName: 'Google',
-      lastName: 'User',
-      email: 'user@gmail.com',
-      age: 18,
-      school: 'High School',
-      newsletter: true
-    };
-    
-    // Show success message
-    authManager.showMessage('Google signup successful! Please complete your profile.', 'success');
-    
-    // Redirect to profile completion
-    setTimeout(() => {
-      window.location.href = 'complete-profile.html';
-    }, 2000);
-    
-  } catch (error) {
-    console.error('Google signup error:', error);
-    authManager.showMessage('Google signup failed. Please try again.', 'error');
-  } finally {
-    // Reset button state
-    const googleBtn = document.querySelector('.btn-google');
-    googleBtn.classList.remove('loading');
-    googleBtn.disabled = false;
   }
 }
 

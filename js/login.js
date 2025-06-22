@@ -44,15 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Google OAuth (mock)
-  const googleBtn = document.querySelector('.btn-google');
-  if (googleBtn) {
-    googleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      handleGoogleLogin();
-    });
-  }
-
   // Forgot password
   const forgotPasswordLink = document.querySelector('.forgot-password');
   if (forgotPasswordLink) {
@@ -143,52 +134,6 @@ function clearFieldError(fieldName) {
   // Remove error message
   if (errorDiv) {
     errorDiv.remove();
-  }
-}
-
-async function handleGoogleLogin() {
-  try {
-    // Show loading state
-    const googleBtn = document.querySelector('.btn-google');
-    googleBtn.classList.add('loading');
-    googleBtn.disabled = true;
-    
-    // Simulate Google OAuth
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Mock successful Google login
-    const mockUser = {
-      id: 'google_' + Math.random().toString(36).substr(2, 9),
-      email: 'user@gmail.com',
-      firstName: 'Google',
-      lastName: 'User',
-      role: 'student'
-    };
-    
-    // Store session
-    localStorage.setItem('t4t_token', 'google_token_' + Math.random().toString(36).substr(2, 9));
-    localStorage.setItem('t4t_user', JSON.stringify(mockUser));
-    
-    // Update auth manager
-    authManager.currentUser = mockUser;
-    authManager.isAuthenticated = true;
-    
-    // Show success message
-    authManager.showMessage('Google login successful!', 'success');
-    
-    // Redirect
-    setTimeout(() => {
-      window.location.href = 'dashboard.html';
-    }, 1000);
-    
-  } catch (error) {
-    console.error('Google login error:', error);
-    authManager.showMessage('Google login failed. Please try again.', 'error');
-  } finally {
-    // Reset button state
-    const googleBtn = document.querySelector('.btn-google');
-    googleBtn.classList.remove('loading');
-    googleBtn.disabled = false;
   }
 }
 

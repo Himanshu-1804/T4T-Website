@@ -14,7 +14,7 @@ This project is a modern, responsive replica of the official Teens 4 Teens websi
 
 ## Pages
 
--   `main.html`: The main homepage with an overview of the organization.
+-   `index.html`: The main homepage with an overview of the organization.
 -   `login.html`: The user login page.
 -   `register.html`: The user registration page.
 -   `donate.html`: The donation page with payment options.
@@ -24,7 +24,7 @@ This project is a modern, responsive replica of the official Teens 4 Teens websi
 
 ```
 T4T Website/
-├── main.html                # Main homepage
+├── index.html                # Main homepage
 ├── login.html               # Login page
 ├── register.html            # Registration page
 ├── donate.html              # Donation page
@@ -44,7 +44,7 @@ T4T Website/
 
 ## Getting Started
 
-To view the website, simply open the `main.html` file in your web browser. For the best experience and to ensure all JavaScript features work correctly, it's recommended to serve the files using a local web server.
+To view the website, simply open the `index.html` file in your web browser. For the best experience and to ensure all JavaScript features work correctly, it's recommended to serve the files using a local web server.
 
 ```bash
 # Using Python

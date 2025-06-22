@@ -166,55 +166,6 @@
   transform: translateY(-2px);
 }
 
-.btn-google {
-  background: white;
-  color: #333;
-  border: 2px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.btn-google:hover {
-  border-color: #E91E63;
-  transform: translateY(-2px);
-}
-
-.btn-google img {
-  width: 20px;
-  height: 20px;
-}
-
-/* Divider */
-.login-divider {
-  text-align: center;
-  margin: 30px 0;
-  position: relative;
-}
-
-.login-divider::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #ddd;
-}
-
-.login-divider span {
-  background: white;
-  padding: 0 15px;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-/* Social Login */
-.social-login {
-  margin-bottom: 30px;
-}
-
 /* Footer */
 .login-footer {
   text-align: center;
